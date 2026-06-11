@@ -12,6 +12,7 @@ export default function AboutPage() {
             <p className="eyebrow">About</p>
             <h1 className="max-w-5xl text-4xl font-semibold tracking-normal text-neutral-950 sm:text-5xl">{about.title}</h1>
             <p className="mt-7 max-w-3xl text-lg leading-8 text-neutral-600">{about.subtitle}</p>
+            <p className="mt-7 max-w-3xl border-l-2 border-blue-900 pl-5 text-base leading-8 text-neutral-700">{about.belief}</p>
           </div>
           <div className="w-full max-w-sm overflow-hidden border border-neutral-200 bg-neutral-100 lg:justify-self-end">
             <Image
@@ -26,7 +27,19 @@ export default function AboutPage() {
         </div>
       </section>
       <section className="section">
-        <div className="section-inner grid gap-10 lg:grid-cols-3">
+        <div className="section-inner">
+          <div className="metric-grid border-y border-neutral-200">
+            {about.highlights.map((item) => (
+              <div key={item.label} className="border-neutral-200 py-6 pr-5 lg:border-r">
+                <strong className="block text-3xl font-semibold text-neutral-950">{item.value}</strong>
+                <span className="mt-2 block text-sm leading-6 text-neutral-600">{item.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="section">
+        <div className="section-inner grid gap-10 lg:grid-cols-2">
           {about.sections.map((section) => (
             <article key={section.title} className="border-t border-neutral-950 pt-6">
               <h2 className="text-2xl font-semibold text-neutral-950">{section.title}</h2>
