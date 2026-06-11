@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #111111;
+  --accent: #0b2f6b;
+}
+
+@theme inline {
+  --font-sans: "Noto Sans SC", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Source Serif 4", Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  letter-spacing: 0;
+}
+::selection { background: #0b2f6b; color: #ffffff; }
+a { text-decoration: none; }
+summary::-webkit-details-marker { display: none; }
+
+.button-dark {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #111111;
+  background: #111111;
+  padding: 0.75rem 1.1rem;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+.button-dark:hover { border-color: #0b2f6b; background: #0b2f6b; }
+.button-light {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d4d4d4;
+  background: #ffffff;
+  padding: 0.75rem 1.1rem;
+  color: #111111;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  transition: border-color 160ms ease, color 160ms ease;
+}
+.button-light:hover { border-color: #0b2f6b; color: #0b2f6b; }
+.eyebrow {
+  margin-bottom: 1rem;
+  color: #0b2f6b;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.section { border-bottom: 1px solid #e5e5e5; background: #ffffff; }
+.section-inner { margin-inline: auto; max-width: 80rem; padding: 4rem 1.25rem; }
+@media (min-width: 640px) { .section-inner { padding-inline: 2rem; } }
+@media (min-width: 1024px) { .section-inner { padding-block: 7rem; } }
+.hero-photo {
+  background-image: linear-gradient(90deg, rgba(8, 10, 14, 0.86), rgba(8, 10, 14, 0.62), rgba(8, 10, 14, 0.82)), url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=85");
+  background-position: center;
+  background-size: cover;
+}
+.metric-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 1024px) { .metric-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
