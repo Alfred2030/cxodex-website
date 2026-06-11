@@ -1,7 +1,7 @@
 export const site = {
   brand: "CXODEX",
   domain: "CXODEX.com",
-  email: "hello@cxodex.com",
+  email: "alfwangsg@163.com",
   description:
     "资深 CEO 陪跑顾问，基于 30 年 CEO 与总经理经验，专注经营改善、增长战略、精益生产、六西格玛、国际化与销售体系建设。"
 };

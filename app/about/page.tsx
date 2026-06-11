@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { about } from "../../content/site";
 
 export const metadata = { title: "关于我" };
@@ -6,10 +7,22 @@ export default function AboutPage() {
   return (
     <>
       <section className="section">
-        <div className="section-inner">
-          <p className="eyebrow">About</p>
-          <h1 className="max-w-5xl text-4xl font-semibold tracking-normal text-neutral-950 sm:text-5xl">{about.title}</h1>
-          <p className="mt-7 max-w-3xl text-lg leading-8 text-neutral-600">{about.subtitle}</p>
+        <div className="section-inner grid gap-10 lg:grid-cols-[1fr_22rem] lg:items-end">
+          <div>
+            <p className="eyebrow">About</p>
+            <h1 className="max-w-5xl text-4xl font-semibold tracking-normal text-neutral-950 sm:text-5xl">{about.title}</h1>
+            <p className="mt-7 max-w-3xl text-lg leading-8 text-neutral-600">{about.subtitle}</p>
+          </div>
+          <div className="w-full max-w-sm overflow-hidden border border-neutral-200 bg-neutral-100 lg:justify-self-end">
+            <Image
+              src="/wang-shuguang-avatar.jpg"
+              alt="王曙光头像"
+              width={1602}
+              height={1921}
+              className="aspect-[4/5] w-full object-cover object-top"
+              priority
+            />
+          </div>
         </div>
       </section>
       <section className="section">
