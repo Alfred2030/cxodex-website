@@ -1,0 +1,10 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/diagnosis/preview/route": "/api/diagnosis/preview",
+  "/api/diagnosis/report/[token]/route": "/api/diagnosis/report/[token]",
+  "/api/diagnosis/submit/route": "/api/diagnosis/submit",
+  "/diagnosis/page": "/diagnosis",
+  "/diagnosis/report/[token]/page": "/diagnosis/report/[token]",
+  "/page": "/"
+}
