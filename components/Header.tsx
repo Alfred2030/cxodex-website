@@ -23,10 +23,12 @@ export function Header() {
           ))}
         </nav>
         <div className="hidden items-center gap-3 lg:flex">
+          <Link href="/training-intro" className="button-light">项目动画</Link>
           <Link href="/diagnosis" className="button-light">免费诊断</Link>
           <Link href="/contact" className="button-dark">预约沟通</Link>
         </div>
         <div className="flex items-center gap-2 lg:hidden">
+          <Link href="/training-intro" className="button-light min-h-10 px-3 py-2 text-xs sm:px-4 sm:text-sm">动画</Link>
           <Link href="/diagnosis" className="button-light min-h-10 px-3 py-2 text-xs sm:px-4 sm:text-sm">诊断</Link>
           <Link href="/contact" className="button-dark min-h-10 px-3 py-2 text-xs sm:px-4 sm:text-sm">预约</Link>
           <details className="group relative">
@@ -44,6 +46,7 @@ export function Header() {
                 ))}
               </div>
               <div className="mt-4 grid gap-2 border-t border-neutral-200 pt-4">
+                <Link href="/training-intro" className="button-light w-full">项目动画介绍</Link>
                 <Link href="/diagnosis" className="button-light w-full">免费在线诊断</Link>
                 <Link href="/contact" className="button-dark w-full">预约沟通</Link>
               </div>
