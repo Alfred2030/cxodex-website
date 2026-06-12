@@ -22,8 +22,12 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <Link href="/contact" className="button-dark hidden lg:inline-flex">预约沟通</Link>
+        <div className="hidden items-center gap-3 lg:flex">
+          <Link href="/diagnosis" className="button-light">免费诊断</Link>
+          <Link href="/contact" className="button-dark">预约沟通</Link>
+        </div>
         <div className="flex items-center gap-2 lg:hidden">
+          <Link href="/diagnosis" className="button-light min-h-10 px-3 py-2 text-xs sm:px-4 sm:text-sm">诊断</Link>
           <Link href="/contact" className="button-dark min-h-10 px-3 py-2 text-xs sm:px-4 sm:text-sm">预约</Link>
           <details className="group relative">
             <summary className="flex h-10 w-10 cursor-pointer list-none flex-col items-center justify-center gap-1.5 border border-neutral-300" aria-label="打开导航菜单">
@@ -39,7 +43,8 @@ export function Header() {
                   </Link>
                 ))}
               </div>
-              <div className="mt-4 border-t border-neutral-200 pt-4">
+              <div className="mt-4 grid gap-2 border-t border-neutral-200 pt-4">
+                <Link href="/diagnosis" className="button-light w-full">免费在线诊断</Link>
                 <Link href="/contact" className="button-dark w-full">预约沟通</Link>
               </div>
             </div>
