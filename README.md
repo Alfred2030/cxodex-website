@@ -18,6 +18,13 @@ npm install
 npm run dev
 ```
 
+Windows PowerShell 如果提示禁止执行 `npm.ps1`，请改用：
+
+```powershell
+npm.cmd install
+npm.cmd run dev
+```
+
 打开：
 
 ```text
@@ -32,6 +39,8 @@ npm run build
 npm audit --audit-level=moderate
 ```
 
+Windows PowerShell 对应使用 `npm.cmd test`、`npm.cmd run build`。
+
 ## 生产环境变量
 
 复制 `.env.example` 为 `.env.local` 或在部署平台中配置：
@@ -40,6 +49,6 @@ npm audit --audit-level=moderate
 DATABASE_URL="postgresql://postgres:password@db.project.supabase.co:5432/postgres"
 RESEND_API_KEY="re_..."
 REPORT_FROM_EMAIL="CXODEX <diagnosis@cxodex.com>"
-LEAD_NOTIFY_EMAIL="hello@cxodex.com"
+LEAD_NOTIFY_EMAIL="wang.alf@gmail.com"
 NEXT_PUBLIC_SITE_URL="https://www.cxodex.com"
 ```
