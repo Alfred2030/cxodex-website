@@ -27,9 +27,9 @@ const metricFields: Array<{ key: keyof MetricInput; label: string; suffix?: stri
 
 export function DiagnosisApp() {
   const [stepIndex, setStepIndex] = useState(0);
-  const [answers, setAnswers] = useState<DiagnosisAnswers>({});
-  const [metrics, setMetrics] = useState<MetricInput>({});
-  const [companyProfile, setCompanyProfile] = useState<CompanyProfile>({});
+  const [answers, setAnswers] = useState<DiagnosisAnswers>(() => getInitialDraft().answers);
+  const [metrics, setMetrics] = useState<MetricInput>(() => getInitialDraft().metrics);
+  const [companyProfile, setCompanyProfile] = useState<CompanyProfile>(() => getInitialDraft().companyProfile);
   const [lead, setLead] = useState<LeadInfo>({ name: "", company: "", email: "", phone: "", role: "" });
   const [consent, setConsent] = useState(false);
   const [website, setWebsite] = useState("");
@@ -46,24 +46,6 @@ export function DiagnosisApp() {
   }).length;
   const progress = Math.round((answeredCount / questions.length) * 100);
   const isLastStep = stepIndex === diagnosisSteps.length - 1;
-
-  useEffect(() => {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) return;
-
-    try {
-      const parsed = JSON.parse(raw) as {
-        answers?: DiagnosisAnswers;
-        metrics?: MetricInput;
-        companyProfile?: CompanyProfile;
-      };
-      setAnswers(parsed.answers ?? {});
-      setMetrics(parsed.metrics ?? {});
-      setCompanyProfile(parsed.companyProfile ?? {});
-    } catch {
-      window.localStorage.removeItem(STORAGE_KEY);
-    }
-  }, []);
 
   useEffect(() => {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ answers, metrics, companyProfile }));
@@ -303,6 +285,35 @@ export function DiagnosisApp() {
       </div>
     </main>
   );
+}
+
+function getInitialDraft() {
+  const emptyDraft = {
+    answers: {} as DiagnosisAnswers,
+    metrics: {} as MetricInput,
+    companyProfile: {} as CompanyProfile,
+  };
+
+  if (typeof window === "undefined") {
+    return emptyDraft;
+  }
+
+  const raw = window.localStorage.getItem(STORAGE_KEY);
+  if (!raw) {
+    return emptyDraft;
+  }
+
+  try {
+    const parsed = JSON.parse(raw) as Partial<typeof emptyDraft>;
+    return {
+      answers: parsed.answers ?? {},
+      metrics: parsed.metrics ?? {},
+      companyProfile: parsed.companyProfile ?? {},
+    };
+  } catch {
+    window.localStorage.removeItem(STORAGE_KEY);
+    return emptyDraft;
+  }
 }
 
 function CompanyProfileForm({
