@@ -20,15 +20,20 @@ export default function HomePage() {
       <section className="border-b border-neutral-200 bg-white">
         <div className="mx-auto grid max-w-7xl gap-6 px-5 py-8 sm:px-8 lg:grid-cols-[1fr_auto] lg:items-center lg:py-10">
           <div>
-            <p className="eyebrow">Free Diagnosis</p>
-            <h2 className="mt-3 text-2xl font-semibold text-neutral-950 sm:text-3xl">免费在线经营健康诊断</h2>
+            <p className="eyebrow">Free Tools</p>
+            <h2 className="mt-3 text-2xl font-semibold text-neutral-950 sm:text-3xl">免费在线经营健康诊断与项目动画介绍</h2>
             <p className="mt-3 max-w-3xl text-base leading-7 text-neutral-600">
-              用 5-8 分钟完成企业经营自测，获得围绕增长、财务、运营、组织和风险的初步诊断报告。
+              先用 5-8 分钟完成企业经营自测，也可以观看卡通动画，快速了解如光实战管理培训的课程结构和适用场景。
             </p>
           </div>
-          <Link href="/diagnosis" className="button-dark w-full justify-center sm:w-auto">
-            开始免费诊断
-          </Link>
+          <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
+            <Link href="/training-intro" className="button-light w-full justify-center sm:w-auto">
+              观看项目动画
+            </Link>
+            <Link href="/diagnosis" className="button-dark w-full justify-center sm:w-auto">
+              开始免费诊断
+            </Link>
+          </div>
         </div>
       </section>
       <section className="section">
